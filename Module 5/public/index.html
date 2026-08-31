@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inkwell — Where Stories Come to Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand">
+      <span class="stamp"><span>Ink</span></span>
+      <span class="brand-text">Inkwell<small>a ledger for writers</small></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav"></nav>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Volume 4 — Open Ledger</p>
+        <h1>Where Stories Come to Life</h1>
+        <p class="sub">Discover inspiring stories, technology insights, travel experiences, and creative ideas from passionate writers around the world.</p>
+        <div class="hero-actions">
+          <a href="register.html" id="start-writing-link" class="btn btn-accent">Start writing</a>
+          <span class="hero-meta-inline" id="hero-stats">Loading the shelf…</span>
+        </div>
+      </div>
+      <div class="featured-card" id="featured-card"></div>
+    </div>
+  </section>
+
+  <section class="category-shelf-section" id="category-shelf-section">
+    <div class="wrap">
+      <p class="eyebrow">Browse all 25 categories</p>
+      <div class="category-shelf" id="category-shelf"></div>
+    </div>
+  </section>
+
+  <section class="ledger" id="ledger-section">
+    <div class="wrap">
+      <div class="ledger-head">
+        <h2>The ledger</h2>
+        <div class="ledger-controls">
+          <input type="search" id="search-blogs" class="search-input" placeholder="Search blogs…" aria-label="Search blogs">
+          <select id="category-filter" class="filter-select" aria-label="Filter by category"></select>
+        </div>
+      </div>
+      <div id="ledger-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Inkwell — Inspiring minds through the power of reading and stories.</div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/blog.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    initNav("home");
+    renderFeaturedHero();
+
+    const startWritingLink = document.getElementById("start-writing-link");
+    if (startWritingLink && getCurrentUser()) {
+      startWritingLink.href = "create-blog.html";
+    }
+  });
+</script>
+</body>
+</html>
